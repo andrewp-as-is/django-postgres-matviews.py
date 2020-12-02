@@ -12,13 +12,33 @@ https://readme42.com
 $ [sudo] pip install django-postgres-matviews
 ```
 
+##### `settings.py`
+```python
+INSTALLED_APPS+=['django_postgres_matviews']
+```
+
 #### Examples
 ```bash
 $ python manage.py refresh_matviews
+$ python manage.py drop_matviews
 ```
 
 ```bash
-$ python manage.py drop_matviews
+$ python manage.py refresh_matview "matview1" "matview2"
+$ python manage.py drop_matviews "matview1" "matview2"
+```
+
+```python
+from django_postgres_matviews.utils import drop_matview, drop_matviews, get_matviews, refresh_matview, refresh_matviews
+
+refresh_matviews()
+drop_matviews()
+
+refresh_matview('matview1')
+drop_matview('matview1')
+
+for m in get_matviews():
+    m.schemaname,m.matviewname
 ```
 
 <p align="center">
