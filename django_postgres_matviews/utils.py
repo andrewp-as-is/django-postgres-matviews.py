@@ -31,13 +31,13 @@ def refresh_matviews():
         cursor.execute(sql)
 
 
-def drop(matview):
+def drop_matview(matview):
     cursor = connection.cursor()
     sql = """DROP MATERIALIZED VIEW IF EXISTS "%s" CASCADE;""" % matview
     cursor.execute(sql)
 
 
-def refresh(matview):
+def refresh_matview(matview):
     cursor = connection.cursor()
     sql = """REFRESH MATERIALIZED VIEW "%s";""" % matview
     cursor.execute(sql)
